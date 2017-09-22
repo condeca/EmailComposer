@@ -71,3 +71,58 @@
     </platform>
 
 </plugin>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-email-composer"
+        version="0.8.7">
+
+    <name>EmailComposeriOS</name>
+
+    <description>
+        Provides access to the standard interface that manages
+        the editing and sending an email message
+    </description>
+
+    <repo>https://github.com/condeca/OutsystemsiPhone.git</repo>
+
+    <keywords>appplant, email</keywords>
+
+    <license>Apache 2.0</license>
+
+    <author>Sebastián Katzer</author>
+
+    <engines>
+        <engine name="cordova" version=">=6.0.0" />
+        <engine name="cordova-ios" version=">=4.0.0" />
+    </engines>
+
+    <!-- interface -->
+    <js-module src="www/email_composer.js" name="EmailComposer">
+        <clobbers target="cordova.plugins.email" />
+        <clobbers target="plugin.email" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="EmailComposer">
+                <param name="ios-package" value="APPEmailComposer"/>
+            </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>mailto</string>
+            </array>
+        </config-file>
+
+        <header-file src="src/ios/APPEmailComposer.h" />
+        <source-file src="src/ios/APPEmailComposer.m" />
+        <header-file src="src/ios/APPEmailComposerImpl.h" />
+        <source-file src="src/ios/APPEmailComposerImpl.m" />
+
+        <framework src="MessageUI.framework" />
+        <framework src="MobileCoreServices.framework" />
+    </platform>
+
+</plugin>
