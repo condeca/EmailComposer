@@ -23,8 +23,9 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="de.appplant.cordova.plugin.email-composer"
-        version="0.8.2">
+        id="cordova-plugin-email-composer"
+        version="0.8.7">
+
 
     <name>EmailComposer</name>
 
@@ -45,10 +46,12 @@
 
     <author>Sebastián Katzer</author>
 
-    <engines>
-        <engine name="cordova" version=">=3.0.0" />
-    </engines>
 
+    <engines>
+        <engine name="cordova" version=">=6.0.0" />
+        <engine name="cordova-ios" version=">=4.0.0" />
+    </engines>
+    
     <!-- interface -->
     <js-module src="www/email_composer.js" name="EmailComposer">
         <clobbers target="cordova.plugins.email" />
@@ -70,30 +73,7 @@
             target-dir="src/de/appplant/cordova/emailcomposer" />
 
     </platform>
-    
-
-
-</plugin>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cordova-plugin-email-composer"
-        version="0.8.7">
-    <repo>
-        https://github.com/condeca/EmailComposer.git
-    </repo>
-    <keywords>appplant, email</keywords>
-    <license>Apache 2.0</license>
-    <engines>
-        <engine name="cordova" version=">=6.0.0" />
-        <engine name="cordova-ios" version=">=4.0.0" />
-    </engines>
-        <!-- interface -->
-    <js-module src="www/email_composer.js" name="EmailComposer">
-        <clobbers target="cordova.plugins.email" />
-        <clobbers target="plugin.email" />
-    </js-module>
-    
-        <!-- ios -->
+            <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="EmailComposer">
@@ -115,8 +95,6 @@
         <framework src="MessageUI.framework" />
         <framework src="MobileCoreServices.framework" />
     </platform>
-
-
-
-
 </plugin>
+
+
